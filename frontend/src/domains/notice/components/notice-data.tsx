@@ -61,6 +61,7 @@ export const NoticeData: React.FC<NoticeDataProps> = ({
   const columns: MRT_ColumnDef<Notice>[] = React.useMemo(
     () => [
       { accessorKey: 'title', header: 'Title', minWidth: 120 },
+      // { accessorKey: 'description', header: 'Description', minWidth: 110 }, // description is saved
       { accessorKey: 'author', header: 'Author', minWidth: 110 },
       {
         accessorKey: 'status',

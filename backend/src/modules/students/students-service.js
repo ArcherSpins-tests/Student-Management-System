@@ -11,11 +11,8 @@ const checkStudentId = async (id) => {
 
 const getAllStudents = async (payload) => {
     const students = await findAllStudents(payload);
-    if (students.length <= 0) {
-        throw new ApiError(404, "Students not found");
-    }
 
-    return students;
+    return students.length <= 0 ? [] : students;
 }
 
 const getStudentDetail = async (id) => {

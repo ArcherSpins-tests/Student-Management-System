@@ -1,11 +1,18 @@
 const express = require("express");
-const router = express.Router();
-const studentController = require("./students-controller");
+const {
+  handleGetAllStudents,
+  handleAddStudent,
+  handleUpdateStudent,
+  handleGetStudentDetail,
+  handleStudentStatus
+} = require("./students-controller");
 
-router.get("", studentController.handleGetAllStudents);
-router.post("", studentController.handleAddStudent);
-router.get("/:id", studentController.handleGetStudentDetail);
-router.post("/:id/status", studentController.handleStudentStatus);
-router.put("/:id", studentController.handleUpdateStudent);
+const router = express.Router();
+
+router.get("/", handleGetAllStudents);
+router.get("/:id", handleGetStudentDetail);
+router.post("/", handleAddStudent);
+router.put("/", handleUpdateStudent);
+router.post("/status", handleStudentStatus);
 
 module.exports = { studentsRoutes: router };
